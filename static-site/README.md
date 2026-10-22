@@ -13,3 +13,5 @@ With Apache running and the site available at `http://localhost/portfolio/`, run
 ## Publish
 
 Commit the contents of this folder to a GitHub repository. Configure GitHub Pages to publish from the repository root or `docs/`, or use a GitHub Actions workflow to publish this `static-site/` directory. GitHub Pages serves static files; it will not provide the WordPress admin or database.
+
+The live portfolio URL is <https://jomartaguiman.github.io/portfolio/>. The repository workflow in `.github/workflows/pages.yml` deploys this folder whenever changes are pushed to `master`.
