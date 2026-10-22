@@ -1,0 +1,22 @@
+/*
+Theme Name: Portfolio Blocks
+Description: An editable portfolio child theme based on Twenty Twenty-Five.
+Author: Codex
+Version: 1.0.0
+Requires at least: 6.7
+Requires PHP: 8.0
+Template: twentytwentyfive
+Text Domain: portfolio-blocks
+*/
+
+/* Smooth in-page anchor navigation on the Home page. */
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
