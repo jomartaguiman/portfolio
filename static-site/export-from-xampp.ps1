@@ -34,5 +34,10 @@ foreach ($relativePath in $localPaths) {
     }
 }
 
+# Keep the static-only Resume page in the exported site's primary navigation.
+$resumeItem = '<li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="resume.html"><span class="wp-block-navigation-item__label">Resume</span></a></li>'
+$portfolioItem = '(?s)(<li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content"\s+href="#project-portfolio"><span class="wp-block-navigation-item__label">Portfolio</span></a></li>)(?!\s*<li[^>]*>\s*<a[^>]*href="resume\.html")'
+$html = [regex]::Replace($html, $portfolioItem, ('$1' + $resumeItem), 1)
+if ($html -notmatch 'href="resume\.html"') { throw 'Could not add Resume to the exported navigation.' }
 $html | Set-Content -LiteralPath (Join-Path $outputRoot 'index.html') -Encoding utf8
 Write-Host "Exported the rendered WordPress homepage and its referenced assets to $outputRoot"
